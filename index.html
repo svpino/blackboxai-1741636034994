@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D FPS Game</title>
+    <style>
+        body { 
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #minimap {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            width: 200px;
+            height: 200px;
+        }
+        canvas { 
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #crosshair {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            pointer-events: none;
+            text-shadow: 0 0 3px rgba(0,0,0,0.5);
+        }
+        #instructions {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        #instructions.hidden {
+            display: none;
+        }
+        .key {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 0 3px;
+            font-family: monospace;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-top: 0;
+            color: #ff9900;
+            text-shadow: 0 0 5px rgba(255,153,0,0.5);
+        }
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="crosshair">+</div>
+    <div id="instructions">
+        <h2>🎮 Game Controls</h2>
+        <p><span class="key">↑</span> Move Forward</p>
+        <p><span class="key">↓</span> Move Backward</p>
+        <p><span class="key">←</span> Turn Left</p>
+        <p><span class="key">→</span> Turn Right</p>
+        <p><span class="key">A</span> Strafe Left</p>
+        <p><span class="key">D</span> Strafe Right</p>
+        <p><span class="key">Space</span> Shoot</p>
+        <p><span class="key">Mouse</span> Look Around</p>
+        <p>Click to start - ESC to exit</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <canvas id="minimap" width="200" height="200"></canvas>
+    <script src="game.js"></script>
+</body>
+</html>
